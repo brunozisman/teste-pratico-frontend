@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## How to use
 
-Acess the page at http://localhost:5000/users'
+Acess the page at http://localhost:5000/users
 
 ## Development server
 
