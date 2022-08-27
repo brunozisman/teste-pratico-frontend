@@ -88,6 +88,7 @@ export class UsersComponent implements OnInit {
   getAllUsers(): void {
     this.userService.findAll().subscribe(result => {
       this.users = result
+      this.users.map(user => user.birthDate = new Date(user.birthDate).toLocaleDateString('pt-br'))
     })
   }
 

@@ -5,5 +5,5 @@ export interface User {
     email: string
     phone: string
     sex: string
-    birthDate: Date
+    birthDate: string
 }
