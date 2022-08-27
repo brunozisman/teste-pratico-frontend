@@ -1,1 +1,51 @@
-<p>users works!</p>
+<div class="container p-5">
+    <div class="row">
+        <div class="col-6 border border-light rounded p-5 shadow" *ngIf="form">
+            <h6>{{formTitle}}</h6>
+            <hr/>
+
+            <form [formGroup]="form">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label>CPF</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="cpf"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control form-control-sm" formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="phone"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Sex</label>
+                    <input type="text" class="form-control form-control-sm" formControlName="sex"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Birth Date</label>
+                    <input type="date" class="form-control form-control-sm" formControlName="birthDate"/>
+                </div>
+
+                <div class="container">
+                    <div class="row pt-4">
+                        <div>
+                            <button type="submit" class="btn btn-sm btn-outline-secondary">Save</button>
+                            <button type="button" class="ms-3 btn btn-sm btn-light">Return</button>
+                        </div>
+                        <div class="ps-1">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

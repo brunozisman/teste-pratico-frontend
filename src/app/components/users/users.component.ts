@@ -9,11 +9,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class UsersComponent implements OnInit {
 
   form: any
-  title!: string
+  formTitle!: string
 
   constructor() { }
 
   ngOnInit(): void {
+
+    this.formTitle = "New User"
+
     this.form = new FormGroup({
       name: new FormControl(null),
       cpf: new FormControl(null),
