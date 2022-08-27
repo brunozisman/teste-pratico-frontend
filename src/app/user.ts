@@ -1,5 +1,5 @@
 export interface User {
-    uerId: any
+    _id: any
     name: string
     cpf: string
     email: string

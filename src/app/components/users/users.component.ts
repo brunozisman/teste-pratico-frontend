@@ -12,20 +12,36 @@ export class UsersComponent implements OnInit {
 
   form: any
   formTitle!: string
+  users!: User[]
+
+  showTable: boolean = true
+  showForm: boolean = false
 
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
 
+    this.userService.findAll().subscribe(result => {
+      this.users = result
+    })
+
+    
+  }
+
+  showRegisterForm(): void {
+    
+    this.showForm = true
+    this.showTable = false
+
     this.formTitle = "New User"
 
     this.form = new FormGroup({
-      name: new FormControl(null),
-      cpf: new FormControl(null),
-      email: new FormControl(null),
-      phone: new FormControl(null),
-      sex: new FormControl(null),
-      birthDate: new FormControl(null)
+    name: new FormControl(null),
+    cpf: new FormControl(null),
+    email: new FormControl(null),
+    phone: new FormControl(null),
+    sex: new FormControl(null),
+    birthDate: new FormControl(null)
     })
   }
 
@@ -38,6 +54,11 @@ export class UsersComponent implements OnInit {
     this.userService.create(user).subscribe(result => {
       alert('User created')
     })
+  }
+
+  cancel(): void {
+    this.showTable = true
+    this.showForm = false
   }
 
 }
