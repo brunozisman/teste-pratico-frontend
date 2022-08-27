@@ -2,13 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
 
-## How to use
-
-Acess the page at http://localhost:5000/users
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## How to use
+
+Acess the page at http://localhost:5000/users
 
 ## Code scaffolding
 
