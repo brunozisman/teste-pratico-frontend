@@ -90,4 +90,12 @@ export class UsersComponent implements OnInit {
       this.users = result
     })
   }
+
+  deleteUser(id: any): void {
+    this.userService.delete(id).subscribe(result => {
+      this.users.splice(result)
+      this.getAllUsers()
+      alert("User deleted")
+    })
+  }
 }
