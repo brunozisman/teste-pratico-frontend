@@ -21,11 +21,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userService.findAll().subscribe(result => {
-      this.users = result
-    })
-
-    
+    this.getAllUsers()    
   }
 
   showRegisterForm(): void {
@@ -45,20 +41,53 @@ export class UsersComponent implements OnInit {
     })
   }
 
+  showUpdateForm(id: any): void {
+    this.showTable = false
+    this.showForm = true
+
+    this.userService.findById(id).subscribe(result => {
+      this.formTitle = `Update ${result.name}`
+
+      this.form = new FormGroup({
+        _id: new FormControl(result._id),
+        name: new FormControl(result.name),
+        cpf: new FormControl(result.cpf),
+        email: new FormControl(result.email),
+        phone: new FormControl(result.phone),
+        sex: new FormControl(result.sex),
+        birthDate: new FormControl(result.birthDate)
+        })
+    })
+  }
+
   sendForm(): void {
-    console.log("submit")
     const user: User = this.form.value
+    console.log(user._id)
 
-    console.log(user)
-
-    this.userService.create(user).subscribe(result => {
+    if(user._id != null) {
+      this.userService.update(user, user._id).subscribe(result => {
+        this.cancel()
+        this.getAllUsers()
+        alert('User updated')
+      })
+    }
+    else{
+      this.userService.create(user).subscribe(result => {
+      this.cancel()
+      this.getAllUsers()
       alert('User created')
     })
   }
+}
 
   cancel(): void {
     this.showTable = true
     this.showForm = false
   }
 
+  getAllUsers(): void {
+    this.userService.findAll().subscribe(result => {
+      this.users = result
+    })
+  }
 }

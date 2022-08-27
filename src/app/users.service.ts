@@ -31,12 +31,13 @@ export class UsersService {
     return this.http.post<User>(this.url, user)
   }
 
-  update(user: User): Observable<any> {
-    return this.http.put<User>(this.url, user, httpOptions)
+  update(user: User, id: any): Observable<any> {
+    const apiUrl = `${this.url}/${id}`
+    return this.http.put<User>(apiUrl, user)
   }
 
   delete(userId: any): Observable<any> {
     const apiUrl = `${this.url}/${userId}`
-    return this.http.delete<any>(apiUrl, httpOptions)
+    return this.http.delete<any>(apiUrl)
   }
 }
