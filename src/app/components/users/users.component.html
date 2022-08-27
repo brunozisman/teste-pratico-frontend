@@ -4,7 +4,7 @@
             <h6>{{formTitle}}</h6>
             <hr/>
 
-            <form [formGroup]="form">
+            <form [formGroup]="form" (ngSubmit)="sendForm()">
                 <div class="form-group">
                     <label>Nome</label>
                     <input type="text" class="form-control form-control-sm" formControlName="name"/>
@@ -40,8 +40,6 @@
                         <div>
                             <button type="submit" class="btn btn-sm btn-outline-secondary">Save</button>
                             <button type="button" class="ms-3 btn btn-sm btn-light">Return</button>
-                        </div>
-                        <div class="ps-1">
                         </div>
                     </div>
                 </div>

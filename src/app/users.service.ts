@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UsersService {
-  url = 'https://localhost:5001/users'
+  url = 'http://localhost:5000/users'
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,8 @@ export class UsersService {
   }
 
   create(user: User): Observable<any> {
-    return this.http.post<User>(this.url, user, httpOptions)
+    console.log(user)
+    return this.http.post<User>(this.url, user)
   }
 
   update(user: User): Observable<any> {
